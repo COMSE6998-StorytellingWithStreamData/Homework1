@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<!-- Template by quackit.com -->
+
+<!--Please note this html file setup the port as ws://localhost:9999/. Please double check 
+if the port number matches with the one typed in terminal when running the file-->
+
+<!--This file displays the user IDs who may be interested in New York and NBA on the webpage.
+The tweets stream data are collected by the python file, and then filtered by New York and 
+NBA these two key words. Then I get all the tweets contains New York and NBA. After that,
+I chose to only display the user IDs on the webpage since these users may be interested in
+New York and NBA. So for the further step, we can recommend and sell New York and NBA
+products and informations to these users-->
+
+<html>
+	<head>
+		<!-- Setup the text and margin of the webpage-->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>2 Column Layout &mdash; Left Menu</title>
+		<style type="text/css">
+		
+			body{
+				margin:0;
+				padding:0;
+				font-family: Sans-Serif;
+				line-height: 1.5em;
+			}
+			
+			main {
+				padding-bottom: 10010px;
+				margin-bottom: -10000px;
+				float: left;
+				width: 100%;
+			}
+			
+			#nav {
+				float: left;
+				width: 230px;
+				margin-left: -100%;
+				padding-bottom: 10010px;
+				margin-bottom: -10000px;
+				background: #eee;
+			}
+			
+			#wrapper {
+				overflow: hidden;
+			}
+			
+			#content {
+				margin-left: 230px; /* Same as 'nav' width */
+			}
+			
+			.innertube{
+				margin: 15px; /* Padding for content */
+				margin-top: 0;
+			}
+			
+			p {
+				color: #555;
+			}
+	
+			nav ul {
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+			}
+			
+			nav ul a {
+				color: darkgreen;
+				text-decoration: none;
+			}
+	
+		</style>
+		
+		<script type="text/javascript">
+			
+			var bodyText=["event.data"]
+			
+		</script>	
+	
+	</head>
+	
+	<body>
+		<div id="wrapper">
+		
+			<main>
+				<div id="content">
+					<div class="innertube">
+						<!-- Write the Header -->
+						<h1>User IDs Who May Be Interested In NBA and New York</h1>
+						<p><script>
+							var ws = new WebSocket('ws://localhost:9999/'); /* Display the data on the webpage via WebSocket*/
+							ws.onmessage = function(event){
+								document.write(event.data); /*Display the user IDs who may be interested in New York and NBA*/
+							};
+						</script></p>
+					</div>
+				</div>
+			</main>
+			<nav id="nav">
+				<div class="innertube">			
+			
+				</div>
+			</nav>
+			
+		</div>
+	</body>
+</html>
